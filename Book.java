@@ -39,4 +39,20 @@ class Book
     {
         return title;
     }
+    
+    /**
+     * Print the author of the book to the terminal
+     */
+    public void printAuthor()
+    {
+        System.out.println("The Author is "+author);
+    }
+    
+    /**
+     * Print the title of the book to the terminal
+     */
+    public void printTitle()
+    {
+        System.out.println("The Title is "+title);
+    }
 }
