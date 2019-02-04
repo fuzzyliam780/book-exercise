@@ -66,4 +66,12 @@ class Book
     {
         System.out.println("The Title is "+title);
     }
+    
+    /**
+     * Print the details of the book to the terminal
+     */
+    public void printDetails()
+    {
+        System.out.println("Title: "+title+"\nAuthor: "+author+"\nPages: "+pages);
+    }
 }
