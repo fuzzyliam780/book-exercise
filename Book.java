@@ -9,23 +9,23 @@
 class Book
 {
      // The fields.
-    private String author;
-    private String title;
-    private String refNumber = "";
-    private int pages;
-    private int borrowed;
+    private String author = "";
+    private String title = "";
+    private String refNumber = "ZZZ";
+    private int pages = 0;
+    private int borrowed = 0;
+    private final boolean courseText;
 
     /**
      * Set the author and title fields when this object
      * is constructed.
      */
-    public Book(String bookAuthor, String bookTitle, String bookRefNumber, int bookPages, int timesBorrowed)
+    public Book(String bookAuthor, String bookTitle, int bookPages, boolean isCourseText)
     {
         author = bookAuthor;
         title = bookTitle;
         pages = bookPages;
-        refNumber = bookRefNumber;
-        borrowed = timesBorrowed;
+        courseText = isCourseText;
     }
     
     /**
@@ -65,15 +65,32 @@ class Book
     }
     
     /**
+     * Provide access to int containing how many times the book has been borrowed
+     * @return borrowed
+     */
+    public int getBorrowed(){
+        return borrowed;
+    }
+    
+    /**
+     * Provide access to boolean containing whether or not the book is a course text
+     * @return courseText
+     */
+    public boolean isCourseText(){
+        return courseText;
+    }
+    
+    /**
      * Set string containing the book's reference number to be a provided reference number
      */
     public void setRefNumber(String ref)
     {
-        int letters = refNumber.length();
+        int letters = ref.length();
         if (letters >= 3){
             refNumber = ref;
         }else{
             System.out.println ("Error: The reference number must be longer than 3 characters!");
+            refNumber = "";
         }
     }
     
@@ -81,12 +98,8 @@ class Book
      * Increases borrowed by 1 each time it is called
      * @return borrowed +1
      */
-    public int borrow(){
-        return borrowed++;
-    }
-    
-    public int getBorrowed(){
-        return borrowed;
+    public void borrow(){
+        borrowed++;
     }
     
     /**
